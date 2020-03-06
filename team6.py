@@ -6,19 +6,19 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'WhiteShirts' # Only 10 chars displayed.
-strategy_name = '1-50 Every Other Betray, then Betray'
-strategy_description = 'Collude every other turn up to turn 50 then betray every turn'
+team_name = 'TheBest' # Only 10 chars displayed.
+strategy_name = 'Nix of collusion and betray'
+strategy_description = 'Betray every 4 times until 100 trials are done'
     
 def move(my_history, their_history, my_score, their_score):
-    ''' We will collude every other play up to 50 then betray every turn.
+    ''' Betray every 4 times until 100 trials are done. Once 100 trials are done 
     
     Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
     
     Make my move.
     Returns 'c' or 'b'. 
-    '''
+    ''' 
 
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
@@ -30,13 +30,13 @@ def move(my_history, their_history, my_score, their_score):
 
 
      # We collude every other round or betray every round after the 50th (first round is round #0).
-    if len(their_history)<50:
-        if  len(my_history)%2 == 0:
-            return 'c'
+    if len(their_history)<=100:
+        if  len(my_history)%4 == 0:
+            return 'b'
         else:
-            return 'b'   
+            return 'c'   
     else: 
-         return 'b'
+         return 'c'
         
 
     
